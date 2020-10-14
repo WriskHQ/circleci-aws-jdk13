@@ -1,4 +1,5 @@
 FROM circleci/openjdk:13-jdk-buster
 RUN sudo apt-get update
-RUN sudo apt-get -y install python-dev python-pip
-RUN sudo pip install awscli --upgrade
+RUN curl -s "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" \
+  && unzip awscliv2.zip \
+  && ./aws/install
