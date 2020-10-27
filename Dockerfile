@@ -1,5 +1,3 @@
-FROM circleci/openjdk:13-jdk-buster
-RUN sudo apt-get update
-RUN sudo curl -s "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-RUN sudo -s unzip awscliv2.zip
-RUN sudo -s ./aws/install
+FROM cimg/openjdk:13.0
+RUN curl -s "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "/tmp/awscliv2.zip"
+RUN cd /tmp && unzip awscliv2.zip && sudo ./aws/install && rm -rf ./aws && rm -f awscliv2.zip
